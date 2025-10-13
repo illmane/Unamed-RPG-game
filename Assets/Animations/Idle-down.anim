@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Idle-animation
+  m_Name: Idle-down
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -22,9 +22,9 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: -8122630841028983744, guid: 1b0e2a0ac6e864446b68b2b015e22f6d, type: 3}
-    - time: 0.33333334
+    - time: 0.25
       value: {fileID: 4521847513445036112, guid: 7c4a5ebee0dbce341a0987ea1e47c132, type: 3}
-    - time: 0.6666667
+    - time: 0.5
       value: {fileID: 4521847513445036112, guid: 7c4a5ebee0dbce341a0987ea1e47c132, type: 3}
     attribute: m_Sprite
     path: 
@@ -56,7 +56,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.68333334
+    m_StopTime: 0.51666665
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

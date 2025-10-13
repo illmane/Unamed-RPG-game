@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1b0e2a0ac6e864446b68b2b015e22f6d
+guid: a52c3e06f55a33d459278200e4e88451
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8122630841028983744
-    second: updated playerIDLE1_0
+      213: 3044936701918284381
+    second: side-walk1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: updated playerIDLE1_0
+      name: side-walk1_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 0
-        width: 24
-        height: 31
+        x: 8
+        y: 1
+        width: 17
+        height: 30
       alignment: 9
       pivot: {x: 0.5, y: 0.08}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 044c5de194e964f80800000000000000
-      internalID: -8122630841028983744
+      spriteID: d5a83613cc9c14a20800000000000000
+      internalID: 3044936701918284381
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 00ae77e742b0e2a4ba084181b868cef3
+    spriteID: 48d3de030bfae69439bf88db33ea200d
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      updated playerIDLE1_0: -8122630841028983744
+      side-walk1_0: 3044936701918284381
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
