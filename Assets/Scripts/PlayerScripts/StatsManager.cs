@@ -6,6 +6,7 @@ public class StatsManager : MonoBehaviour
 
     [Header("Movement Stats")]
     public float MovementSpeed;
+    public float ControllerDeadZone = 0.1f;
 
     void Awake()
     {

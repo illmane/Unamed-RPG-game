@@ -7,6 +7,7 @@ public class Player_Movement : MonoBehaviour
     private float moveYValue;
     private Animator Anim;
     
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -25,23 +26,33 @@ public class Player_Movement : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        if (horizontal < -0.05f)
+        if (horizontal != 0f || vertical != 0f)
+        {
+            Anim.SetBool("isMoving", true);
+        }
+        else if (horizontal == 0f && vertical == 0f)
+        {
+            Anim.SetBool("isMoving", false);
+            
+        }
+
+        if (horizontal < -StatsManager.Instance.ControllerDeadZone)
         {
             moveXValue = -1;
             moveYValue = 0f;
         }
-        else if (horizontal > 0.05f)
+        else if (horizontal > StatsManager.Instance.ControllerDeadZone)
         {
             moveXValue = 1;
             moveYValue = 0f;
         }
 
-        if (vertical < -0.05f)
+        if (vertical < -StatsManager.Instance.ControllerDeadZone)
         {
             moveXValue = 0;
             moveYValue = -1f;
         }
-        else if (vertical > 0.05f)
+        else if (vertical > StatsManager.Instance.ControllerDeadZone)
         {
             moveXValue = 0;
             moveYValue = 1f;
