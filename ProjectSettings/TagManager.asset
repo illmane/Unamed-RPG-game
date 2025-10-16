@@ -44,11 +44,17 @@ TagManager:
   - name: Background
     uniqueID: 1402881027
     locked: 0
-  - name: PlantsAndDecorations
+  - name: Decoration-low
     uniqueID: 2094896129
+    locked: 0
+  - name: Obstacles-low
+    uniqueID: 1764760387
     locked: 0
   - name: Player
     uniqueID: 961578989
+    locked: 0
+  - name: Decoration-high
+    uniqueID: 3573998593
     locked: 0
   m_RenderingLayers:
   - Default
