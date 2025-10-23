@@ -53,6 +53,9 @@ TagManager:
   - name: Player
     uniqueID: 961578989
     locked: 0
+  - name: Enemy
+    uniqueID: 2876200791
+    locked: 0
   - name: Decoration-high
     uniqueID: 3573998593
     locked: 0
