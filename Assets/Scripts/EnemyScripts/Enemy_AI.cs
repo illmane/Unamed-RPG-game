@@ -5,13 +5,14 @@ using UnityEngine;
 public enum EnemyState
 {
     Idle,
-    Chasing
+    Chasing,
+    Attacking
 }
 public class Enemy_AI : MonoBehaviour
 {
-    public float damageAmount = 2f;
     public float enemySpeed;
     public EnemyState state;
+    public float attackDistance;
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -22,29 +23,30 @@ public class Enemy_AI : MonoBehaviour
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
-        // ChangeState(EnemyState.Idle);
         state = EnemyState.Idle;
     }
 
-    void FixedUpdate()
+    void Update()
     {
+        CheckForPlayer();
         if (state == EnemyState.Chasing)
         {
             enemyChasing();
         }
+        else if (state == EnemyState.Attacking)
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
     }
 
     // damage player if touched (active hitbox)
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            collision.gameObject.GetComponent<PlayerHealth>().takeDamage(damageAmount);
-        }
-    }
     private void enemyChasing()
     {
-        if (_Player.position.x > transform.position.x && facingDirection == -2.2f || _Player.position.x < transform.position.x && facingDirection == 2.2f)
+        if (Vector2.Distance(transform.position, _Player.transform.position) <= attackDistance)
+        {
+            ChangeState(EnemyState.Attacking);
+        }
+        else if (_Player.position.x > transform.position.x && facingDirection == 2.2f || _Player.position.x < transform.position.x && facingDirection == -2.2f)
         {
             EnemyFlip();
         }
@@ -56,8 +58,10 @@ public class Enemy_AI : MonoBehaviour
         facingDirection *= -1;
         transform.localScale = new Vector3(facingDirection, transform.localScale.y, transform.localScale.z);
     }
-    void OnTriggerEnter2D(Collider2D collision)
+    private void CheckForPlayer()
     {
+        Collider2D[] hits = Physics2D.OverlapCircleAll();
+        
         if (collision.gameObject.tag == "Player")
         {
             if (_Player == null)
@@ -67,7 +71,7 @@ public class Enemy_AI : MonoBehaviour
             ChangeState(EnemyState.Chasing);
         }
     }
-    void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
@@ -83,6 +87,10 @@ public class Enemy_AI : MonoBehaviour
         {
             anim.SetBool("isChasing", false);
         }
+        else if (state == EnemyState.Attacking)
+        {
+            anim.SetBool("isAttacking", false);
+        }
         // updates the state
         state = newState;
 
@@ -91,6 +99,9 @@ public class Enemy_AI : MonoBehaviour
         {
             anim.SetBool("isChasing", true);
         }
-
+        else if (state == EnemyState.Attacking)
+        {
+            anim.SetBool("isAttacking", true);
+        }
     }
 }

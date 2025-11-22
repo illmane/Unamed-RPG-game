@@ -14,9 +14,8 @@ public class PlayerHealth : MonoBehaviour
 
     public void takeDamage(float damageAmount)
     {
-        StatsManager.Instance.currentHealh -= damageAmount;
+        StatsManager.Instance.currentHealh += damageAmount;
         HealthSlider.value = StatsManager.Instance.currentHealh;
-
 
         if (StatsManager.Instance.currentHealh <= 0f)
         {
