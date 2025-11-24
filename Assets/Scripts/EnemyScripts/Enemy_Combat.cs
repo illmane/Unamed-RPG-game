@@ -6,8 +6,8 @@ public class Enemy_Combat : MonoBehaviour
     public LayerMask PlayerLayer;
     public float HitboxRadius;
 
-    private Transform attackPoint;
 
+    private Transform attackPoint;
     void Start()
     {
         attackPoint = gameObject.GetComponentInChildren<Transform>();
@@ -19,13 +19,12 @@ public class Enemy_Combat : MonoBehaviour
             collision.gameObject.GetComponent<PlayerHealth>().takeDamage(-damageAmount);
         }
     }
-
     public void Attack()
     {
         Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, HitboxRadius, PlayerLayer);
         if (hits.Length > 0)
         {
             hits[0].GetComponent<PlayerHealth>().takeDamage(-damageAmount);
-        }
+        }    
     }
 }

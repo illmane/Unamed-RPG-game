@@ -13,11 +13,17 @@ public class Enemy_AI : MonoBehaviour
     public float enemySpeed;
     public EnemyState state;
     public float attackDistance;
+    public float playerDetectionRange = 2.3f;
+    public Transform detectionPoint;
+    public LayerMask PlayerLayer;
+    public float attackCooldown;
 
     private Rigidbody2D rb;
     private Animator anim;
     private Transform _Player;
     private float facingDirection = 2.2f;
+    private float attackCooldownTimer;
+
 
     void Start()
     {
@@ -28,7 +34,13 @@ public class Enemy_AI : MonoBehaviour
 
     void Update()
     {
+        if (attackCooldownTimer > 0)
+        {
+            attackCooldownTimer -= Time.deltaTime;
+        }
+        // constantly check if player is within range
         CheckForPlayer();
+
         if (state == EnemyState.Chasing)
         {
             enemyChasing();
@@ -42,11 +54,7 @@ public class Enemy_AI : MonoBehaviour
     // damage player if touched (active hitbox)
     private void enemyChasing()
     {
-        if (Vector2.Distance(transform.position, _Player.transform.position) <= attackDistance)
-        {
-            ChangeState(EnemyState.Attacking);
-        }
-        else if (_Player.position.x > transform.position.x && facingDirection == 2.2f || _Player.position.x < transform.position.x && facingDirection == -2.2f)
+        if (_Player.position.x > transform.position.x && facingDirection == 2.2f || _Player.position.x < transform.position.x && facingDirection == -2.2f)
         {
             EnemyFlip();
         }
@@ -58,26 +66,32 @@ public class Enemy_AI : MonoBehaviour
         facingDirection *= -1;
         transform.localScale = new Vector3(facingDirection, transform.localScale.y, transform.localScale.z);
     }
+
     private void CheckForPlayer()
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll();
-        
-        if (collision.gameObject.tag == "Player")
+        Collider2D[] hits = Physics2D.OverlapCircleAll(detectionPoint.position, playerDetectionRange, PlayerLayer);
+        // If player is within detection range
+        if (hits.Length > 0)
         {
-            if (_Player == null)
-            {
-                _Player = collision.transform;
+            _Player = hits[0].transform;
+            // If player is within detection AND attack range
+
+            if (Vector2.Distance(transform.position, _Player.position) <= attackDistance && attackCooldownTimer <= 0){
+
+                attackCooldownTimer = attackCooldown;
+                ChangeState(EnemyState.Attacking);
             }
-            ChangeState(EnemyState.Chasing);
+            else if (Vector2.Distance(transform.position, _Player.position) > attackDistance)
+            {
+                ChangeState(EnemyState.Chasing);
+            }
         }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
+        else
         {
             rb.linearVelocity = Vector2.zero;
             ChangeState(EnemyState.Idle);
         }
+
     }
 
     private void ChangeState(EnemyState newState)
@@ -91,6 +105,10 @@ public class Enemy_AI : MonoBehaviour
         {
             anim.SetBool("isAttacking", false);
         }
+        else if (state == EnemyState.Idle)
+        {
+            anim.SetBool("isIdle", false);
+        }
         // updates the state
         state = newState;
 
@@ -102,6 +120,10 @@ public class Enemy_AI : MonoBehaviour
         else if (state == EnemyState.Attacking)
         {
             anim.SetBool("isAttacking", true);
+        }
+        else if (state == EnemyState.Idle)
+        {
+            anim.SetBool("isIdle", true);
         }
     }
 }
