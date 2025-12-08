@@ -12,6 +12,10 @@ public class StatsManager : MonoBehaviour
     public float maxHealth = 10f;
     public float currentHealh = 0f;
 
+    [Header("Player Combat")]
+    public float StunnedPower;
+    public float StunnedTimer;
+
     void Awake()
     {
         if (Instance == null)

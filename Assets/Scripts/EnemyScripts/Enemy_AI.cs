@@ -81,7 +81,7 @@ public class Enemy_AI : MonoBehaviour
                 attackCooldownTimer = attackCooldown;
                 ChangeState(EnemyState.Attacking);
             }
-            else if (Vector2.Distance(transform.position, _Player.position) > attackDistance)
+            else if (Vector2.Distance(transform.position, _Player.position) > attackDistance && state != EnemyState.Attacking)
             {
                 ChangeState(EnemyState.Chasing);
             }

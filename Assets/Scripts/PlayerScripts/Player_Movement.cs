@@ -1,3 +1,5 @@
+using System.Collections;
+using NUnit.Framework;
 using UnityEngine;
 
 public class Player_Movement : MonoBehaviour
@@ -6,7 +8,7 @@ public class Player_Movement : MonoBehaviour
     private float moveXValue;
     private float moveYValue;
     private Animator Anim;
-    
+    private bool isStunned;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,7 +20,10 @@ public class Player_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MovementFunction();
+        if (isStunned == false)
+        {
+            MovementFunction();
+        }
     }
 
     private void MovementFunction()
@@ -33,9 +38,7 @@ public class Player_Movement : MonoBehaviour
         else if (horizontal == 0f && vertical == 0f)
         {
             Anim.SetBool("isMoving", false);
-            
         }
-
         if (horizontal < -StatsManager.Instance.ControllerDeadZone)
         {
             moveXValue = -1;
@@ -61,8 +64,21 @@ public class Player_Movement : MonoBehaviour
         Anim.SetFloat("MoveX", moveXValue);
         Anim.SetFloat("MoveY", moveYValue);
 
-
         rb.linearVelocity = new Vector2(horizontal * StatsManager.Instance.MovementSpeed, vertical * StatsManager.Instance.MovementSpeed);
+    }
 
+    private IEnumerator StunnedTimer()
+    {
+        yield return new WaitForSeconds(StatsManager.Instance.StunnedTimer);
+        rb.linearVelocity = Vector2.zero;
+        isStunned = false;
+    }
+
+    public void GetStunned(Transform enemy)
+    {
+        isStunned = true;
+        Vector2 StunnedDirection = transform.position - enemy.position;
+        rb.linearVelocity = StunnedDirection * StatsManager.Instance.StunnedPower;
+        StartCoroutine(StunnedTimer());
     }
 }
