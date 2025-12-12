@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using NUnit.Framework;
 using UnityEngine;
@@ -9,6 +10,8 @@ public class Player_Movement : MonoBehaviour
     private float moveYValue;
     private Animator Anim;
     private bool isStunned;
+
+    public static event Action OnAttack;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,8 +20,15 @@ public class Player_Movement : MonoBehaviour
         Anim = gameObject.GetComponentInChildren<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            OnAttack?.Invoke();
+        }
+    }
+
+    void FixedUpdate()
     {
         if (isStunned == false)
         {
