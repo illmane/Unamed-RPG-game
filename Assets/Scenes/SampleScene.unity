@@ -4695,6 +4695,7 @@ MonoBehaviour:
   currentHealh: 0
   StunnedPower: 10
   StunnedTimer: 0.1
+  AttackCooldown: 0.4
 --- !u!4 &2143932089
 Transform:
   m_ObjectHideFlags: 0

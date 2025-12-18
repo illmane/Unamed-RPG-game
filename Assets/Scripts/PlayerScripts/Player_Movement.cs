@@ -11,7 +11,7 @@ public class Player_Movement : MonoBehaviour
     private Animator Anim;
     private bool isStunned;
 
-    public static event Action OnAttack;
+    public static event Action<float> OnAttack;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,7 +24,7 @@ public class Player_Movement : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            OnAttack?.Invoke();
+            OnAttack?.Invoke(moveXValue);
         }
     }
 
