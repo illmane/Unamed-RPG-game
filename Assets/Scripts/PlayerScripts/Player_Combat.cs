@@ -5,11 +5,13 @@ public class Player_Combat : MonoBehaviour
     private Animator anim;
     private float timer;
 
+    public Transform attackPoint;
+    public LayerMask enemyLayer;
+
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
         Player_Movement.OnAttack += player_attack;
-    
     }
     void Update()
     {
@@ -31,7 +33,18 @@ public class Player_Combat : MonoBehaviour
             {
                 anim.SetFloat("AttackX", 0);
             }
+
             anim.SetBool("isAttacking", true);
+            Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.position, StatsManager.Instance.attackRange, enemyLayer);
+            foreach(Collider2D enemy in enemies)
+            {
+                if(enemy.isTrigger) continue;
+            }
+            
+            if (enemies.Length > 0)
+            {
+                enemies[0].GetComponent<Enemy_Health>().takeDamage();
+            }
             timer = StatsManager.Instance.AttackCooldown;
         }
     }

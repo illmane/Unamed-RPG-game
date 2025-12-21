@@ -16,6 +16,9 @@ public class StatsManager : MonoBehaviour
     public float StunnedPower;
     public float StunnedTimer;
     public float AttackCooldown;
+    public float damageAmount;
+    public float attackRange;
+
 
     void Awake()
     {
