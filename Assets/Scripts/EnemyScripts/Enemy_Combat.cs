@@ -10,6 +10,7 @@ public class Enemy_Combat : MonoBehaviour
     void Start()
     {
         attackPoint = gameObject.GetComponentInChildren<Transform>();
+        
     }
 
     // void OnCollisionEnter2D(Collision2D collision)

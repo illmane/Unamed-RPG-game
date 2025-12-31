@@ -2985,7 +2985,7 @@ MonoBehaviour:
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 64
-  attackCooldown: 1
+  attackCooldown: 1.5
 --- !u!114 &777456216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3017,6 +3017,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   Maxhealth: 5
+  rb: {fileID: 0}
 --- !u!1 &778126905
 GameObject:
   m_ObjectHideFlags: 0
@@ -4747,7 +4748,7 @@ MonoBehaviour:
   StunnedPower: 10
   StunnedTimer: 0.1
   AttackCooldown: 0.4
-  damageAmount: 3
+  damageAmount: 2
   attackRange: 0.5
 --- !u!4 &2143932089
 Transform:

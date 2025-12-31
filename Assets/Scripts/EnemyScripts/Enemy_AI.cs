@@ -91,7 +91,6 @@ public class Enemy_AI : MonoBehaviour
             rb.linearVelocity = Vector2.zero;
             ChangeState(EnemyState.Idle);
         }
-
     }
 
     private void ChangeState(EnemyState newState)
