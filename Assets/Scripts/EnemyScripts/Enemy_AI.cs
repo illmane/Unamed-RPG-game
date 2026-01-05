@@ -24,7 +24,6 @@ public class Enemy_AI : MonoBehaviour
     private float facingDirection = 2.2f;
     private float attackCooldownTimer;
 
-
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
