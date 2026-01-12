@@ -7,22 +7,22 @@ public class StatsUI : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        updateAllstats();
+        ShowAllstats();
     }
 
-    private void UpdateDamage()
+    private void ShowDamage()
     {
         PlayerStats[0].GetComponent<Text>().text = "Strength: " + StatsManager.Instance.damageAmount;
     }
-    private void UpdateHealth()
+    private void ShowHealth()
     {
         PlayerStats[1].GetComponent<Text>().text = "Vigour: " + StatsManager.Instance.maxHealth;
     }
 
-    private void updateAllstats()
+    private void ShowAllstats()
     {
-        UpdateDamage();
-        UpdateHealth();
+        ShowDamage();
+        ShowHealth();
     }
 
 }
