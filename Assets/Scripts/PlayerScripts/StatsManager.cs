@@ -1,3 +1,4 @@
+using System;
 using System.Reflection;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -22,11 +23,10 @@ public class StatsManager : MonoBehaviour
     public float attackRange;
 
     [Header("Player Level Info")]
-    public float currentXPAmount;
-    public float TargetXPAmount = 300f;
-    public int StatsPoints;
+    public float currentXPAmount = 0f;
+    public float TargetXPAmount = 100f;
+    public int StatsPoints = 0;
     public int currentLevel = 1;
-
 
     void Awake()
     {

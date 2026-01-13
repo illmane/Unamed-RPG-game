@@ -2151,6 +2151,7 @@ GameObject:
   - component: {fileID: 64977753}
   - component: {fileID: 64977754}
   - component: {fileID: 64977755}
+  - component: {fileID: 64977756}
   m_Layer: 5
   m_Name: Menu_UI_Container
   m_TagString: Untagged
@@ -2270,10 +2271,22 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 64977748}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &64977756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64977748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91d31ea68f21db94d8ca3a2c63080207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &148417059
 GameObject:
   m_ObjectHideFlags: 0
@@ -5908,9 +5921,9 @@ MonoBehaviour:
   damageAmount: 2
   attackRange: 0.5
   currentXPAmount: 0
-  TargetXPAmount: 300
+  TargetXPAmount: 100
   StatsPoints: 0
-  currentLevel: 0
+  currentLevel: 1
 --- !u!4 &2143932089
 Transform:
   m_ObjectHideFlags: 0

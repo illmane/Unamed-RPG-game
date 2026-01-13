@@ -3,7 +3,13 @@ using UnityEngine;
 
 public class XPManager : MonoBehaviour
 {
-    private float X = ((StatsManager.Instance.currentLevel+81f)-92f)*0.02f;
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GainExperience(50);
+        }
+    }
     public void GainExperience(int enemyXPAmount)
     {
         StatsManager.Instance.currentXPAmount += enemyXPAmount;
@@ -14,7 +20,6 @@ public class XPManager : MonoBehaviour
         }
     }
 
-
     private void LevelUpEvent()
     {
         StatsManager.Instance.currentXPAmount -= StatsManager.Instance.TargetXPAmount;
@@ -22,8 +27,6 @@ public class XPManager : MonoBehaviour
         StatsManager.Instance.currentLevel++;
         StatsManager.Instance.StatsPoints++;
 
-        StatsManager.Instance.TargetXPAmount = (float) Math.Floor(((X+0.1f)*Math.Pow(StatsManager.Instance.currentLevel+81f, 2f))+1f);
+        StatsManager.Instance.TargetXPAmount = (float) Math.Floor(((StatsManager.Instance.currentLevel*0.02f+0.001f)*Math.Pow(StatsManager.Instance.currentLevel+81f, 2f))+1f);
     }
 }
-
-
