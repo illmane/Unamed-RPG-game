@@ -35,16 +35,19 @@ public class Player_Combat : MonoBehaviour
                 anim.SetFloat("AttackX", 0);
                 attackPoint.localPosition = new Vector3(-ATTACKPOINT_POSITION, attackPoint.localPosition.y, attackPoint.localPosition.z);
             }
+
             anim.SetBool("isAttacking", true);
             Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.position, StatsManager.Instance.attackRange, enemyLayer);
             foreach(Collider2D enemy in enemies)
             {
                 if(enemy.isTrigger) continue;
             }
+
             if (enemies.Length > 0)
             {
                 enemies[0].GetComponent<Enemy_Health>().takeDamage();
             }
+
             timer = StatsManager.Instance.AttackCooldown;
         }
     }

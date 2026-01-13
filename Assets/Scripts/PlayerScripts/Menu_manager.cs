@@ -3,8 +3,13 @@ using UnityEngine;
 public class Menu_manager : MonoBehaviour
 {
     public GameObject Menu_background_container;
+    private CanvasGroup canvasGroup;
 
     // Update is called once per frame
+    void Start()
+    {
+        canvasGroup = gameObject.GetComponent<CanvasGroup>();
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -14,15 +19,15 @@ public class Menu_manager : MonoBehaviour
     }
     private void ToggleMenu()
     {
-        if (Menu_background_container.activeSelf == true)
+        if (canvasGroup.alpha == 1f)
         {
-            Menu_background_container.SetActive(false);
+            canvasGroup.alpha = 0f;
             Time.timeScale = 1;
         }
-        else if (Menu_background_container.activeSelf == false)
+        else if (canvasGroup.alpha == 0f)
         {
-            Menu_background_container.SetActive(true);
             Time.timeScale = 0;
+            canvasGroup.alpha = 1f;
         }
     }
 }
