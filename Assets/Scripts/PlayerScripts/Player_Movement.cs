@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player_Movement : MonoBehaviour
 {
@@ -10,10 +11,18 @@ public class Player_Movement : MonoBehaviour
     private float moveYValue;
     private Animator Anim;
     private bool isStunned;
+    private ControllerActionMap Controls;
 
     public static event Action<float> OnAttack;
-    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    void Awake()
+    {
+        Controls = new ControllerActionMap();
+
+        Controls.Combat.Strike.performed += ctx => OnAttack?.Invoke(moveXValue);
+    }
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -90,5 +99,15 @@ public class Player_Movement : MonoBehaviour
         Vector2 StunnedDirection = transform.position - enemy.position;
         rb.linearVelocity = StunnedDirection * StatsManager.Instance.StunnedPower;
         StartCoroutine(StunnedTimer());
+    }
+
+    void OnEnable()
+    {
+        Controls.Combat.Enable();
+    }
+
+    void OnDisable()
+    {
+        Controls.Combat.Disable();   
     }
 }

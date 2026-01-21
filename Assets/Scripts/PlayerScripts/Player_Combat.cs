@@ -47,7 +47,6 @@ public class Player_Combat : MonoBehaviour
             {
                 enemies[0].GetComponent<Enemy_Health>().takeDamage();
             }
-
             timer = StatsManager.Instance.AttackCooldown;
         }
     }

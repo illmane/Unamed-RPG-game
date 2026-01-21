@@ -1,0 +1,34 @@
+{
+    "name": "ControllerActionMap",
+    "maps": [
+        {
+            "name": "Combat",
+            "id": "02e45846-fbee-4a90-bbe5-58660271777c",
+            "actions": [
+                {
+                    "name": "Strike",
+                    "type": "Button",
+                    "id": "65c5c0de-4c98-4105-abca-11f95f25f8bd",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "084494e8-d6f8-4c77-8b43-8daeac6cbf61",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Strike",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

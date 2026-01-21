@@ -9,10 +9,9 @@ public class Enemy_Health : MonoBehaviour
 {
    public float currentHealth;
    public float Maxhealth;
-   public Rigidbody2D rb;
 
+   private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
-
     private float STAY_RED_TIME = 0.08f;
     private Color colour1;
 
