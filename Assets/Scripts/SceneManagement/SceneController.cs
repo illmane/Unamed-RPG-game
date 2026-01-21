@@ -22,7 +22,7 @@ public class SceneController : MonoBehaviour
         {
             CleanUpAndDestroy();
             return;
-        } 
+        }
     }
 
     public void ChangeScene(int currentIndex, Transform _playerPosition)
