@@ -9,6 +9,7 @@ public class SceneController : MonoBehaviour
     [Header("Persistent Objects")]
     public GameObject[] persistenObjects;
 
+    private Vector2 FOREST_BIOME_SPAWNPOINT = new Vector2(-5.72f, -3.37f);
     void Awake()
     {
         if (Instance == null)
@@ -24,12 +25,13 @@ public class SceneController : MonoBehaviour
         } 
     }
 
-    public void ChangeScene(int currentIndex)
+    public void ChangeScene(int currentIndex, Transform _playerPosition)
     {
         // check if current scene is TUTORIALAREA
         if (currentIndex == 0)
         {
             SceneManager.LoadSceneAsync("ForestBiome");
+            _playerPosition.position = FOREST_BIOME_SPAWNPOINT;
         }
     }
 
