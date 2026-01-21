@@ -1,11 +1,18 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Menu_manager : MonoBehaviour
 {
     public GameObject Menu_background_container;
     private CanvasGroup canvasGroup;
+    private ControllerActionMap Controls;
 
-    // Update is called once per frame
+    void Awake()
+    {
+        Controls = new ControllerActionMap();
+        Controls.Inventory.ToggleMenu.performed += ctx => ToggleMenu();
+    }
+
     void Start()
     {
         canvasGroup = gameObject.GetComponent<CanvasGroup>();
@@ -29,5 +36,15 @@ public class Menu_manager : MonoBehaviour
             Time.timeScale = 0;
             canvasGroup.alpha = 1f;
         }
+    }
+
+    void OnEnable()
+    {
+        Controls.Inventory.Enable();
+    }
+
+    void OnDisable()
+    {
+        Controls.Inventory.Disable();   
     }
 }
