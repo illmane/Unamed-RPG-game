@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Data;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
@@ -9,6 +10,7 @@ public class Enemy_Health : MonoBehaviour
 {
    public float currentHealth;
    public float Maxhealth;
+   public static event Action OnKillingTutorialEnemy;
 
    private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
@@ -30,6 +32,10 @@ public class Enemy_Health : MonoBehaviour
         
         if (currentHealth <= 0f)
         {
+            if (gameObject.tag == "TutorialEnemy")
+            {   
+                OnKillingTutorialEnemy?.Invoke();
+            }
             Destroy(gameObject);
         }
     }
