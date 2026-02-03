@@ -99,6 +99,15 @@ public partial class @ControllerActionMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""42c72d49-e6cc-431d-8cb7-eda81f578057"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -110,6 +119,17 @@ public partial class @ControllerActionMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Strike"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""100b0e8f-b160-4b19-8568-dd43e2537457"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -149,6 +169,7 @@ public partial class @ControllerActionMap: IInputActionCollection2, IDisposable
         // Combat
         m_Combat = asset.FindActionMap("Combat", throwIfNotFound: true);
         m_Combat_Strike = m_Combat.FindAction("Strike", throwIfNotFound: true);
+        m_Combat_Dash = m_Combat.FindAction("Dash", throwIfNotFound: true);
         // Inventory
         m_Inventory = asset.FindActionMap("Inventory", throwIfNotFound: true);
         m_Inventory_ToggleMenu = m_Inventory.FindAction("ToggleMenu", throwIfNotFound: true);
@@ -234,6 +255,7 @@ public partial class @ControllerActionMap: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Combat;
     private List<ICombatActions> m_CombatActionsCallbackInterfaces = new List<ICombatActions>();
     private readonly InputAction m_Combat_Strike;
+    private readonly InputAction m_Combat_Dash;
     /// <summary>
     /// Provides access to input actions defined in input action map "Combat".
     /// </summary>
@@ -249,6 +271,10 @@ public partial class @ControllerActionMap: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Combat/Strike".
         /// </summary>
         public InputAction @Strike => m_Wrapper.m_Combat_Strike;
+        /// <summary>
+        /// Provides access to the underlying input action "Combat/Dash".
+        /// </summary>
+        public InputAction @Dash => m_Wrapper.m_Combat_Dash;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -278,6 +304,9 @@ public partial class @ControllerActionMap: IInputActionCollection2, IDisposable
             @Strike.started += instance.OnStrike;
             @Strike.performed += instance.OnStrike;
             @Strike.canceled += instance.OnStrike;
+            @Dash.started += instance.OnDash;
+            @Dash.performed += instance.OnDash;
+            @Dash.canceled += instance.OnDash;
         }
 
         /// <summary>
@@ -292,6 +321,9 @@ public partial class @ControllerActionMap: IInputActionCollection2, IDisposable
             @Strike.started -= instance.OnStrike;
             @Strike.performed -= instance.OnStrike;
             @Strike.canceled -= instance.OnStrike;
+            @Dash.started -= instance.OnDash;
+            @Dash.performed -= instance.OnDash;
+            @Dash.canceled -= instance.OnDash;
         }
 
         /// <summary>
@@ -435,6 +467,13 @@ public partial class @ControllerActionMap: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnStrike(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Dash" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDash(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Inventory" which allows adding and removing callbacks.

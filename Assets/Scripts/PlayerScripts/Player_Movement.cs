@@ -12,6 +12,9 @@ public class Player_Movement : MonoBehaviour
     private Animator Anim;
     private bool isStunned;
     private ControllerActionMap Controls;
+    private bool canDash = true;
+    private bool isDashing = false;
+    private float DASHING_TIME = 0.15f;
 
     public static event Action<float> OnAttack;
 
@@ -22,6 +25,9 @@ public class Player_Movement : MonoBehaviour
         Controls = new ControllerActionMap();
 
         Controls.Combat.Strike.performed += ctx => OnAttack?.Invoke(moveXValue);
+        Controls.Combat.Dash.performed += ctx => StartCoroutine(Dash()); 
+
+
     }
     void Start()
     {
@@ -35,13 +41,18 @@ public class Player_Movement : MonoBehaviour
         {
             OnAttack?.Invoke(moveXValue);
         }
+
     }
 
     void FixedUpdate()
     {
-        if (isStunned == false)
+        if (isStunned == false && isDashing == false)
         {
             MovementFunction();
+        }
+        if (isDashing == true)
+        {
+            return;
         }
     }
 
@@ -101,6 +112,26 @@ public class Player_Movement : MonoBehaviour
         StartCoroutine(StunnedTimer());
     }
 
+    public IEnumerator Dash()
+    {
+        if (canDash == true)
+        {
+            canDash = false;
+            isDashing = true;
+            float originalGravity = rb.gravityScale;
+            // rb.gravityScale = 0f;
+
+            rb.linearVelocity = new Vector2(Input.GetAxis("Horizontal")*StatsManager.Instance.DashingPower, 0f);
+
+            yield return new WaitForSeconds(DASHING_TIME);
+            rb.gravityScale = originalGravity;
+            isDashing = false;
+
+            yield return new WaitForSeconds(StatsManager.Instance.DashingCooldown);
+            canDash = true;
+        }
+
+    }
     void OnEnable()
     {
         Controls.Combat.Enable();

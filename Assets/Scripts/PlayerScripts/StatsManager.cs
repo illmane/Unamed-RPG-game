@@ -21,6 +21,10 @@ public class StatsManager : MonoBehaviour
     public float AttackCooldown;
     public float damageAmount;
     public float attackRange;
+    
+    [Header("Player Dash stuff")]
+    public float DashingPower;
+    public float DashingCooldown;
 
     [Header("Player Level Info")]
     public float currentXPAmount = 0f;

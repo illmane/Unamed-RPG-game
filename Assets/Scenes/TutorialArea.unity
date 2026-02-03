@@ -7622,6 +7622,8 @@ MonoBehaviour:
   AttackCooldown: 0.4
   damageAmount: 2
   attackRange: 0.5
+  DashingPower: 18
+  DashingCooldown: 1
   currentXPAmount: 0
   TargetXPAmount: 100
   StatsPoints: 0
@@ -7854,7 +7856,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2898345202160244088, guid: aa7096a256ed3ee4c9a899e54c2ba74e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2898345202160244088, guid: aa7096a256ed3ee4c9a899e54c2ba74e, type: 3}
       propertyPath: m_TagString
