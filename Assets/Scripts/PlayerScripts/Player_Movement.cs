@@ -14,7 +14,7 @@ public class Player_Movement : MonoBehaviour
     private ControllerActionMap Controls;
     private bool canDash = true;
     private bool isDashing = false;
-    private float DASHING_TIME = 0.15f;
+    private float DASHING_TIME = 0.20f;
 
     public static event Action<float> OnAttack;
 
@@ -26,8 +26,6 @@ public class Player_Movement : MonoBehaviour
 
         Controls.Combat.Strike.performed += ctx => OnAttack?.Invoke(moveXValue);
         Controls.Combat.Dash.performed += ctx => StartCoroutine(Dash()); 
-
-
     }
     void Start()
     {
@@ -116,21 +114,44 @@ public class Player_Movement : MonoBehaviour
     {
         if (canDash == true)
         {
+            Anim.SetBool("CanDash", canDash);
             canDash = false;
             isDashing = true;
             float originalGravity = rb.gravityScale;
             // rb.gravityScale = 0f;
 
-            rb.linearVelocity = new Vector2(Input.GetAxis("Horizontal")*StatsManager.Instance.DashingPower, 0f);
+            DashDirection();
 
             yield return new WaitForSeconds(DASHING_TIME);
             rb.gravityScale = originalGravity;
             isDashing = false;
 
+            Anim.SetBool("CanDash", canDash);
             yield return new WaitForSeconds(StatsManager.Instance.DashingCooldown);
             canDash = true;
         }
 
+    }
+
+    private void DashDirection()
+    {
+        if (moveXValue == 1f && moveYValue == 0)
+        {
+            rb.linearVelocity = new Vector2(StatsManager.Instance.DashingPower, 0f);
+        }
+        else if (moveXValue == -1f && moveYValue == 0)
+        {
+            rb.linearVelocity = new Vector2(-StatsManager.Instance.DashingPower, 0f);
+            
+        }
+        if (moveXValue == 0f && moveYValue == 1f)
+        {
+            rb.linearVelocity = new Vector2(0f, StatsManager.Instance.DashingPower);
+        }
+        else if (moveXValue == 0f && moveYValue == -1f)
+        {
+            rb.linearVelocity = new Vector2(0f, -StatsManager.Instance.DashingPower);
+        }
     }
     void OnEnable()
     {
