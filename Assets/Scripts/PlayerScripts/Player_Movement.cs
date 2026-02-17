@@ -40,6 +40,10 @@ public class Player_Movement : MonoBehaviour
             OnAttack?.Invoke(moveXValue);
         }
 
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            StartCoroutine(Dash());
+        }
     }
 
     void FixedUpdate()

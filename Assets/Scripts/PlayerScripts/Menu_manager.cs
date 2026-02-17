@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,6 +7,7 @@ public class Menu_manager : MonoBehaviour
     public GameObject Menu_background_container;
     private CanvasGroup canvasGroup;
     private ControllerActionMap Controls;
+    public static event Action OnOpeningMenuFirstTime;
 
     void Awake()
     {
@@ -19,7 +21,7 @@ public class Menu_manager : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             ToggleMenu();
         }
@@ -35,6 +37,7 @@ public class Menu_manager : MonoBehaviour
         {
             Time.timeScale = 0;
             canvasGroup.alpha = 1f;
+            OnOpeningMenuFirstTime?.Invoke();
         }
     }
 
