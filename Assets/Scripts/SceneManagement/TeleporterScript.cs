@@ -14,5 +14,4 @@ public class TeleporterScript : MonoBehaviour
             SceneController.Instance.ChangeScene(CurrentScene, PlayerPosition);
         }
     }
-
 }
