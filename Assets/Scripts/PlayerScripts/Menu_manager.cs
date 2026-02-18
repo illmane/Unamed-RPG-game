@@ -23,7 +23,6 @@ public class Menu_manager : MonoBehaviour
         Controls = new ControllerActionMap();
         Controls.Inventory.ToggleMenu.performed += ctx => ToggleMenu();
         canvasGroup = gameObject.GetComponent<CanvasGroup>();
-
     }
 
     void Update()
@@ -91,7 +90,6 @@ public class Menu_manager : MonoBehaviour
         {
             SlotNumber = 3;
         }
-        print(SlotNumber);
         AllStats[SlotNumber].color = Color.yellow;
     }
 
