@@ -8,7 +8,6 @@ public class TriggerDashText : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            print("now RT to dash");
             OnPassingArchway?.Invoke();
         }
     }
