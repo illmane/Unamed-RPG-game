@@ -2733,6 +2733,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Menu_background_container: {fileID: 376272362}
+  XP_Progressbar_text: {fileID: 1062151749}
+  currentLevel_text: {fileID: 442145227}
+  StatsPoint_text: {fileID: 1795615041}
 --- !u!225 &64977755
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -8053,6 +8056,10 @@ PrefabInstance:
     - target: {fileID: 2898345202160244088, guid: aa7096a256ed3ee4c9a899e54c2ba74e, type: 3}
       propertyPath: m_TagString
       value: TutorialEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658496761787046381, guid: aa7096a256ed3ee4c9a899e54c2ba74e, type: 3}
+      propertyPath: Xp_amount
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

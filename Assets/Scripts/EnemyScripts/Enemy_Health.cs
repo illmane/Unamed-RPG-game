@@ -11,6 +11,7 @@ public class Enemy_Health : MonoBehaviour
    public float currentHealth;
    public float Maxhealth;
    public static event Action OnKillingTutorialEnemy;
+   public int Xp_amount; 
 
    private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
@@ -36,6 +37,8 @@ public class Enemy_Health : MonoBehaviour
             {   
                 OnKillingTutorialEnemy?.Invoke();
             }
+
+            XPManager.instance.GainExperience(Xp_amount);
             Destroy(gameObject);
         }
     }

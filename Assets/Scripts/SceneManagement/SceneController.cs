@@ -13,6 +13,7 @@ public class SceneController : MonoBehaviour
     private Vector2 FOREST_BIOME_SPAWNPOINT = new Vector2(-5.72f, -3.37f);
     void Awake()
     {
+        TransitionAnim = GameObject.FindWithTag("SceneTansition").GetComponent<Animator>();
         if (Instance == null)
         {
             Instance = this;
@@ -25,7 +26,6 @@ public class SceneController : MonoBehaviour
             return;
         }
 
-        TransitionAnim = GameObject.FindWithTag("SceneTansition").GetComponent<Animator>();
     }
 
     public void ChangeScene(int currentIndex, Transform _playerPosition)

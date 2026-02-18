@@ -3,13 +3,20 @@ using UnityEngine;
 
 public class XPManager : MonoBehaviour
 {
-    void Update()
+    public static XPManager instance;
+
+    void Awake()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (instance == null)
         {
-            GainExperience(50);
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
+
     public void GainExperience(int enemyXPAmount)
     {
         StatsManager.Instance.currentXPAmount += enemyXPAmount;
