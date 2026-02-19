@@ -21,6 +21,7 @@ public class StatsManager : MonoBehaviour
     public float AttackCooldown;
     public float damageAmount;
     public float attackRange;
+    public float Defence;
     
     [Header("Player Dash stuff")]
     public float DashingPower;
@@ -29,8 +30,14 @@ public class StatsManager : MonoBehaviour
     [Header("Player Level Info")]
     public float currentXPAmount = 0f;
     public float TargetXPAmount = 100f;
-    public int StatsPoints = 0;
+    public float StatsPoints = 0;
     public int currentLevel = 1;
+
+    public int VigourPoints = 1;
+    public int StrengthPoints = 1;
+    public int DefencePoints = 1;
+    public int SpeedPoints = 1;
+
 
     void Awake()
     {

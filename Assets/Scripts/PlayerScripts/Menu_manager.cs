@@ -8,6 +8,7 @@ public class Menu_manager : MonoBehaviour
 {
     public GameObject Menu_background_container;
     public static event Action OnOpeningMenuFirstTime;
+    public static event Action <int> OnChangeStats;
     public Text[] AllStats;
 
     private ControllerActionMap Controls;
@@ -40,15 +41,21 @@ public class Menu_manager : MonoBehaviour
         {
             NavigateThroughStats(-1);
         }
+
+        if (Input.GetKeyDown(KeyCode.RightArrow) && canvasGroup.alpha == 1f)
+        {
+            OnChangeStats?.Invoke(SlotNumber);
+            StatsPoint_text.text ="Stats Pts: " + StatsManager.Instance.StatsPoints.ToString();
+        }
     }
     private void ToggleMenu()
     {
         // CLOSE MENU
         if (canvasGroup.alpha == 1f)
         {
+            DeselectAllSlots();
             canvasGroup.alpha = 0f;
             Time.timeScale = 1;
-
         }
         // OPEN MENU
         else if (canvasGroup.alpha == 0f)
@@ -57,6 +64,7 @@ public class Menu_manager : MonoBehaviour
             canvasGroup.alpha = 1f;
             OnOpeningMenuFirstTime?.Invoke();
             DisplayAllLevelInfo();
+            HighlightFirstStatOnOPen();
         }
     }
 
@@ -99,5 +107,12 @@ public class Menu_manager : MonoBehaviour
         {
             AllStats[i].color = Color.white;
         }
+    }
+
+    private void HighlightFirstStatOnOPen()
+    {
+        SlotNumber = 0;
+        AllStats[SlotNumber].color = Color.yellow;
+
     }
 }

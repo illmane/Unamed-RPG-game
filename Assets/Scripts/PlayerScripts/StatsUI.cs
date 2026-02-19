@@ -7,22 +7,36 @@ public class StatsUI : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        ShowAllstats();
+        Menu_manager.OnChangeStats += ShowAllstats;
+        ShowAllstats(0);
     }
 
     private void ShowDamage()
     {
-        PlayerStats[0].GetComponent<Text>().text = "Strength: " + StatsManager.Instance.damageAmount;
+        PlayerStats[0].GetComponent<Text>().text = "Vigour: " + StatsManager.Instance.VigourPoints;
     }
     private void ShowHealth()
     {
-        PlayerStats[1].GetComponent<Text>().text = "Vigour: " + StatsManager.Instance.maxHealth;
+        PlayerStats[1].GetComponent<Text>().text = "Strength: " + StatsManager.Instance.StrengthPoints;
     }
 
-    private void ShowAllstats()
+    // NEED TO ADD DEFENCE MECHANIC
+    private void ShowDefenceText()
+    {
+        PlayerStats[2].GetComponent<Text>().text = "Defence: " + StatsManager.Instance.DefencePoints;
+    }
+
+    private void ShowSpeedText()
+    {
+        PlayerStats[3].GetComponent<Text>().text = "Speed: " + StatsManager.Instance.SpeedPoints;
+    }   
+
+    private void ShowAllstats(int _dummynumber)
     {
         ShowDamage();
         ShowHealth();
+        ShowDefenceText();
+        ShowSpeedText();
     }
 
 }

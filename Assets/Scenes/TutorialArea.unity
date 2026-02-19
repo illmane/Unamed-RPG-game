@@ -3099,7 +3099,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5611761691279119907, guid: dc2dce604be23ca47a0c02d6578f7828, type: 3}
       propertyPath: m_Name
-      value: StatsText (3)
+      value: SpeedText
+      objectReference: {fileID: 0}
+    - target: {fileID: 7201828852088984913, guid: dc2dce604be23ca47a0c02d6578f7828, type: 3}
+      propertyPath: m_Text
+      value: 'Speed: 45'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3123,6 +3127,7 @@ GameObject:
   - component: {fileID: 370213527}
   - component: {fileID: 370213526}
   - component: {fileID: 370213528}
+  - component: {fileID: 370213529}
   m_Layer: 5
   m_Name: StatsMenu_container
   m_TagString: Untagged
@@ -3211,6 +3216,18 @@ MonoBehaviour:
   - {fileID: 1888305447}
   - {fileID: 1812132260}
   - {fileID: 888479713}
+--- !u!114 &370213529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370213524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ef6a1e7216fc574ca3e77bdcfc7463f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &376272362
 GameObject:
   m_ObjectHideFlags: 0
@@ -6246,7 +6263,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5611761691279119907, guid: dc2dce604be23ca47a0c02d6578f7828, type: 3}
       propertyPath: m_Name
-      value: StatsText (2)
+      value: DefenceText
+      objectReference: {fileID: 0}
+    - target: {fileID: 7201828852088984913, guid: dc2dce604be23ca47a0c02d6578f7828, type: 3}
+      propertyPath: m_Text
+      value: 'Defence: 45'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6731,7 +6752,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5611761691279119907, guid: dc2dce604be23ca47a0c02d6578f7828, type: 3}
       propertyPath: m_Name
-      value: StatsText (1)
+      value: StrengthText
+      objectReference: {fileID: 0}
+    - target: {fileID: 7201828852088984913, guid: dc2dce604be23ca47a0c02d6578f7828, type: 3}
+      propertyPath: m_Text
+      value: 'Strength: 45'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7803,12 +7828,17 @@ MonoBehaviour:
   AttackCooldown: 0.4
   damageAmount: 2
   attackRange: 0.5
+  Defence: 0
   DashingPower: 18
   DashingCooldown: 1
   currentXPAmount: 0
   TargetXPAmount: 100
-  StatsPoints: 0
+  StatsPoints: 5
   currentLevel: 1
+  VigourPoints: 1
+  StrengthPoints: 1
+  DefencePoints: 1
+  SpeedPoints: 1
 --- !u!4 &2143932089
 Transform:
   m_ObjectHideFlags: 0
@@ -8023,7 +8053,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5611761691279119907, guid: dc2dce604be23ca47a0c02d6578f7828, type: 3}
       propertyPath: m_Name
-      value: StatsText
+      value: VigourText
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
