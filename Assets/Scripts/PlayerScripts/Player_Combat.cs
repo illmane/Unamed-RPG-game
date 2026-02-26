@@ -25,6 +25,7 @@ public class Player_Combat : MonoBehaviour
     {
         if (timer <= 0f)
         {
+            StatsManager.Instance.MovementSpeed = 2.5f;
             if (moveXValue == 1 || moveXValue == 0)
             {
                 anim.SetFloat("AttackX", 1);
@@ -54,5 +55,6 @@ public class Player_Combat : MonoBehaviour
     public void player_attackFinished()
     {
         anim.SetBool("isAttacking", false);
+        StatsManager.Instance.MovementSpeed = 5f;
     }
 }
