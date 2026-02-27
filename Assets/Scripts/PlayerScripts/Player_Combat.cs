@@ -21,17 +21,17 @@ public class Player_Combat : MonoBehaviour
             timer -= Time.deltaTime;
         }
     }
-    public void player_attack(float moveXValue)
+    public void player_attack(float moveXValue, float horizontal)
     {
         if (timer <= 0f)
         {
             StatsManager.Instance.MovementSpeed = 2.5f;
-            if (moveXValue == 1 || moveXValue == 0)
+            if (moveXValue == 1f || horizontal > 0.15f && horizontal < 1f)
             {
                 anim.SetFloat("AttackX", 1);
                 attackPoint.localPosition = new Vector3(ATTACKPOINT_POSITION, attackPoint.localPosition.y, attackPoint.localPosition.z);
             }
-            else if (moveXValue == -1)
+            else if (moveXValue == -1f || horizontal < -0.15f && horizontal > -1f)
             {
                 anim.SetFloat("AttackX", 0);
                 attackPoint.localPosition = new Vector3(-ATTACKPOINT_POSITION, attackPoint.localPosition.y, attackPoint.localPosition.z);

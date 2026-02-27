@@ -11,6 +11,7 @@ public class SceneController : MonoBehaviour
     private Animator TransitionAnim;
 
     private Vector2 FOREST_BIOME_SPAWNPOINT = new Vector2(-5.72f, -3.37f);
+    private Vector2 CAVE_BIOME_SPAWNPOINT = new Vector2(-7.76F, -0.77f);
     void Awake()
     {
         TransitionAnim = GameObject.FindWithTag("SceneTansition").GetComponent<Animator>();
@@ -36,6 +37,12 @@ public class SceneController : MonoBehaviour
         {
             SceneManager.LoadSceneAsync("ForestBiome");
             _playerPosition.position = FOREST_BIOME_SPAWNPOINT;
+        }
+
+        if (currentIndex == 1)
+        {
+            SceneManager.LoadSceneAsync("CaveBiome");
+            _playerPosition.position = CAVE_BIOME_SPAWNPOINT;
         }
         TransitionAnim.SetTrigger("Start");
 

@@ -15,8 +15,10 @@ public class Player_Movement : MonoBehaviour
     private bool canDash = true;
     private bool isDashing = false;
     private float DASHING_TIME = 0.20f;
+    private float horizontal;
+    
 
-    public static event Action<float> OnAttack;
+    public static event Action<float, float> OnAttack;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -24,7 +26,7 @@ public class Player_Movement : MonoBehaviour
     {
         Controls = new ControllerActionMap();
 
-        Controls.Combat.Strike.performed += ctx => OnAttack?.Invoke(moveXValue);
+        Controls.Combat.Strike.performed += ctx => OnAttack?.Invoke(moveXValue, horizontal);
         Controls.Combat.Dash.performed += ctx => StartCoroutine(Dash()); 
     }
     void Start()
@@ -37,7 +39,7 @@ public class Player_Movement : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            OnAttack?.Invoke(moveXValue);
+            OnAttack?.Invoke(moveXValue, horizontal);
         }
 
         if (Input.GetKeyDown(KeyCode.E))
@@ -60,7 +62,7 @@ public class Player_Movement : MonoBehaviour
 
     private void MovementFunction()
     {
-        float horizontal = Input.GetAxis("Horizontal");
+        horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
         if (horizontal != 0f || vertical != 0f)

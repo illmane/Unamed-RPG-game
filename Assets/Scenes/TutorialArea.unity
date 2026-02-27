@@ -3679,7 +3679,7 @@ Camera:
   far clip plane: 1004.7
   field of view: 34
   orthographic: 1
-  orthographic size: 6.9
+  orthographic size: 5.75
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3704,7 +3704,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.6430764, y: -3.4259899, z: -10}
+  m_LocalPosition: {x: 1.1696091, y: -4.3125, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6988,7 +6988,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 34
-    OrthographicSize: 6.9
+    OrthographicSize: 5.75
     NearClipPlane: 0.54
     FarClipPlane: 1004.7
     Dutch: 0
@@ -7833,7 +7833,7 @@ MonoBehaviour:
   DashingCooldown: 1
   currentXPAmount: 0
   TargetXPAmount: 100
-  StatsPoints: 5
+  StatsPoints: 0
   currentLevel: 1
   VigourPoints: 1
   StrengthPoints: 1
@@ -7868,51 +7868,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 195158203485354489, guid: eb71dcf28b6d4e14eae805957215ddeb, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
-      value: 6.3418264
+      value: 9.704365
       objectReference: {fileID: 0}
     - target: {fileID: 195158203485354489, guid: eb71dcf28b6d4e14eae805957215ddeb, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
-      value: -2.5605898
+      value: 0.89407325
       objectReference: {fileID: 0}
     - target: {fileID: 195158203485354489, guid: eb71dcf28b6d4e14eae805957215ddeb, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
-      value: 6.3561735
+      value: 8.19866
       objectReference: {fileID: 0}
     - target: {fileID: 195158203485354489, guid: eb71dcf28b6d4e14eae805957215ddeb, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
-      value: 2.3600214
+      value: 6.0449934
       objectReference: {fileID: 0}
     - target: {fileID: 195158203485354489, guid: eb71dcf28b6d4e14eae805957215ddeb, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
-      value: -6.691734
+      value: -8.764532
       objectReference: {fileID: 0}
     - target: {fileID: 195158203485354489, guid: eb71dcf28b6d4e14eae805957215ddeb, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
-      value: 2.5034137
+      value: 6.188387
       objectReference: {fileID: 0}
     - target: {fileID: 195158203485354489, guid: eb71dcf28b6d4e14eae805957215ddeb, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
-      value: -6.730533
+      value: -8.895454
       objectReference: {fileID: 0}
     - target: {fileID: 195158203485354489, guid: eb71dcf28b6d4e14eae805957215ddeb, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
-      value: -8.50531
+      value: -12.835155
       objectReference: {fileID: 0}
     - target: {fileID: 195158203485354489, guid: eb71dcf28b6d4e14eae805957215ddeb, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].x
-      value: 20.446362
+      value: 24.914392
       objectReference: {fileID: 0}
     - target: {fileID: 195158203485354489, guid: eb71dcf28b6d4e14eae805957215ddeb, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].y
-      value: -9.664379
+      value: -12.612356
       objectReference: {fileID: 0}
     - target: {fileID: 195158203485354489, guid: eb71dcf28b6d4e14eae805957215ddeb, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[5].x
-      value: 20.22251
+      value: 24.69054
       objectReference: {fileID: 0}
     - target: {fileID: 195158203485354489, guid: eb71dcf28b6d4e14eae805957215ddeb, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[5].y
-      value: -2.564034
+      value: 0.15363431
       objectReference: {fileID: 0}
     - target: {fileID: 710267846990968632, guid: eb71dcf28b6d4e14eae805957215ddeb, type: 3}
       propertyPath: m_LocalPosition.x
