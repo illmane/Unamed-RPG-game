@@ -816,7 +816,7 @@ Transform:
   m_GameObject: {fileID: 276227860}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.169407, y: -4.54238, z: -10}
+  m_LocalPosition: {x: 4.0664916, y: -3.76595, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -941,7 +941,7 @@ Camera:
   far clip plane: 1004.7
   field of view: 34
   orthographic: 1
-  orthographic size: 6.18
+  orthographic size: 5.14
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3672,7 +3672,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 34
-    OrthographicSize: 6.18
+    OrthographicSize: 5.14
     NearClipPlane: 0.54
     FarClipPlane: 1004.7
     Dutch: 0
@@ -5704,7 +5704,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2898345202160244088, guid: aa7096a256ed3ee4c9a899e54c2ba74e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8658496761787046381, guid: aa7096a256ed3ee4c9a899e54c2ba74e, type: 3}
       propertyPath: Xp_amount
