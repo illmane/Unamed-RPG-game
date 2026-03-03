@@ -5,7 +5,8 @@ public enum RockEnemyState
 {
     Idle,
     Chasing,
-    Attacking
+    Attacking,
+    RollingUp
 }
 public class RockEnemy_AI : MonoBehaviour
 {
@@ -102,9 +103,9 @@ public class RockEnemy_AI : MonoBehaviour
 
                 ChangeState(RockEnemyState.Attacking);
             }
-            else if (Vector2.Distance(transform.position, _Player.position) > attackDistance && state != RockEnemyState.Attacking)
+            else if (Vector2.Distance(transform.position, _Player.position) > attackDistance && state != RockEnemyState.Attacking && state != RockEnemyState.Chasing)
             {
-                ChangeState(RockEnemyState.Chasing);
+                ChangeState(RockEnemyState.RollingUp);
             }
         }
         else
@@ -129,6 +130,10 @@ public class RockEnemy_AI : MonoBehaviour
         {
             anim.SetBool("isIdle", false);
         }
+        else if (state == RockEnemyState.RollingUp)
+        {
+            anim.SetBool("isRollingUp", false);
+        }
         // updates the state
         state = newState;
 
@@ -144,6 +149,10 @@ public class RockEnemy_AI : MonoBehaviour
         else if (state == RockEnemyState.Idle)
         {
             anim.SetBool("isIdle", true);
+        }
+        else if (state == RockEnemyState.RollingUp)
+        {
+            anim.SetBool("isRollingUp", true);
         }
     }
 }
