@@ -863,7 +863,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySpeed: 2
   state: 0
-  attackDistance: 1.93
+  attackDistance: 3.69
   playerDetectionRange: 7.15
   detectionPoint: {fileID: 1819786549}
   PlayerLayer:

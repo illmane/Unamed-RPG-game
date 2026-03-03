@@ -23,14 +23,11 @@ public class RockEnemy_AI : MonoBehaviour
     private Transform _Player;
     private float facingDirection = 1.33f;
     private float attackCooldownTimer;
-    
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
         state = RockEnemyState.Idle;
-
-
     }
 
     // Update is called once per frame
