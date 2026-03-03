@@ -698,7 +698,7 @@ GameObject:
   - component: {fileID: 254165811}
   - component: {fileID: 254165810}
   - component: {fileID: 254165809}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RockEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -842,7 +842,7 @@ Transform:
   m_GameObject: {fileID: 254165804}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.77227, y: 1.18682, z: 0}
+  m_LocalPosition: {x: 5.3, y: 3.41, z: 0}
   m_LocalScale: {x: 1.33, y: 1.33, z: 1.33}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -863,13 +863,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySpeed: 2
   state: 0
-  attackDistance: 2.1
-  playerDetectionRange: 4.4
+  attackDistance: 1.93
+  playerDetectionRange: 7.15
   detectionPoint: {fileID: 1819786549}
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 64
-  attackCooldown: 1.5
+  attackCooldown: 0.5
 --- !u!114 &254165810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -877,7 +877,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 254165804}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c401d7be4241f04ca2601826e6d1975, type: 3}
   m_Name: 
@@ -894,7 +894,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 254165804}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0d03c1295ea1a644bc5402daa681aa8, type: 3}
   m_Name: 
@@ -5250,7 +5250,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1819786549}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DetectionPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
