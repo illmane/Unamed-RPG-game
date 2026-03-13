@@ -96,9 +96,9 @@ public class RockEnemy_AI : MonoBehaviour
                     print("player is ABOVE me");
                     
                 }
-                attackCooldownTimer = attackCooldown;
 
                 ChangeState(RockEnemyState.Attacking);
+                attackCooldownTimer = attackCooldown;
             }
             else if (Vector2.Distance(transform.position, _Player.position) > attackDistance && state != RockEnemyState.Attacking && state != RockEnemyState.Chasing)
             {

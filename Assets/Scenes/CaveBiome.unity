@@ -869,7 +869,7 @@ MonoBehaviour:
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 64
-  attackCooldown: 0.5
+  attackCooldown: 1
 --- !u!114 &254165810
 MonoBehaviour:
   m_ObjectHideFlags: 0
