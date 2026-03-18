@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     public Slider HealthSlider;
+    public static event Action <float> OnPlayerdeath;
     void Start()
     {
         StatsManager.Instance.currentHealh = StatsManager.Instance.maxHealth;
@@ -19,8 +21,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (StatsManager.Instance.currentHealh <= 0f)
         {
-            print("YOU DIED");
-            StatsManager.Instance.currentHealh = StatsManager.Instance.maxHealth;
+            OnPlayerdeath?.Invoke(StatsManager.Instance.currentHealh);
         }
     }
 }
