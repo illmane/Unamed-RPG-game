@@ -18,9 +18,13 @@ public class PlayerDeathManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        canvasGroup = gameObject.GetComponent<CanvasGroup>();
         PlayerHealth.OnPlayerdeath += GameOver;
+    }
+
+    void Start()
+    {
+        canvasGroup = gameObject.GetComponent<CanvasGroup>();
+        
     }
 
     void Update()
@@ -45,5 +49,10 @@ public class PlayerDeathManager : MonoBehaviour
             canvasGroup.alpha = 0;
             isDead = false;
         }
+    }
+
+    private void OnDestroy()
+    {
+        PlayerHealth.OnPlayerdeath -= GameOver;
     }
 }

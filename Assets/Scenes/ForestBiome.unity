@@ -5852,6 +5852,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2078706482032494345, guid: aa7096a256ed3ee4c9a899e54c2ba74e, type: 3}
+      propertyPath: damageAmount
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2898345202160244088, guid: aa7096a256ed3ee4c9a899e54c2ba74e, type: 3}
       propertyPath: m_Name
       value: TreeSprit
@@ -12429,7 +12433,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   persistenObjects:
   - {fileID: 183416676}
-  - {fileID: 0}
   - {fileID: 1628960627}
   - {fileID: 951679713}
   - {fileID: 96969581}
