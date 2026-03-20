@@ -114,4 +114,10 @@ public class TutorialTextHandler : MonoBehaviour
             TutorialText.text = "";
         }
     }
+
+    private void OnDestroy()
+    {
+        TriggerDashText.OnPassingArchway -= ShowDashText;
+    }
+
 }
