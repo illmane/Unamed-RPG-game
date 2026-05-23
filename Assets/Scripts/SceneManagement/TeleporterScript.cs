@@ -8,7 +8,6 @@ public class TeleporterScript : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            print("is this even activating");
             int CurrentScene = SceneManager.GetActiveScene().buildIndex;
             
             SceneController.Instance.ChangeScene(CurrentScene, collision.transform);
