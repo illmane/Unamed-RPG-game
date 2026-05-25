@@ -42,7 +42,7 @@ public class RockEnemy_AI : MonoBehaviour
 
         if (state == RockEnemyState.Chasing)
         {
-            enemyChasing();
+            enemyChasingDirection();
         }
         else if (state == RockEnemyState.Attacking)
         {
@@ -50,7 +50,7 @@ public class RockEnemy_AI : MonoBehaviour
         }
     }
 
-    private void enemyChasing()
+    private void enemyChasingDirection()
     {
         if (_Player.position.x > transform.position.x && facingDirection == 1.33f || _Player.position.x < transform.position.x && facingDirection == -1.33f)
         {
@@ -77,25 +77,6 @@ public class RockEnemy_AI : MonoBehaviour
 
             // If player is within detection AND attack range
             if (Vector2.Distance(transform.position, _Player.position) <= attackDistance && attackCooldownTimer <= 0){
-
-                if (_Player.position.x > transform.position.x)
-                {
-                    print("player is RIGHT of me");
-                }
-                else if (_Player.position.x < transform.position.x)
-                {
-                    print("player is LEFT of me");
-                }
-
-                if (_Player.position.y < transform.position.y)
-                {
-                    print("player is BELOW me");
-                }
-                else if (_Player.position.y > transform.position.y)
-                {
-                    print("player is ABOVE me");
-                    
-                }
 
                 ChangeState(RockEnemyState.Attacking);
                 attackCooldownTimer = attackCooldown;
