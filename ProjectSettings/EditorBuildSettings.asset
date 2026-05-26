@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CaveBiome.unity
     guid: 849bad49e0b2c6241a71fb599a367962
+  - enabled: 1
+    path: Assets/Scenes/BossRoon.unity
+    guid: d1eaef60cce53cc43be1bff9e7281b8e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
