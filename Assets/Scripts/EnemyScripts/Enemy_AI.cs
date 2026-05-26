@@ -63,6 +63,7 @@ public class Enemy_AI : MonoBehaviour
     }
     private void EnemyFlip()
     {
+
         facingDirection *= -1;
         transform.localScale = new Vector3(facingDirection, transform.localScale.y, transform.localScale.z);
     }

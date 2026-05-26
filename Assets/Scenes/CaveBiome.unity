@@ -4635,7 +4635,6 @@ GameObject:
   - component: {fileID: 1131683649}
   - component: {fileID: 1131683648}
   - component: {fileID: 1131683647}
-  - component: {fileID: 1131683646}
   - component: {fileID: 1131683645}
   m_Layer: 5
   m_Name: DeathScreenCanvas
@@ -4654,18 +4653,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e233a83cf212a7e4e9b730a8a1147a7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1131683646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1131683644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05a736472a18e5948928bbe74add26ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!225 &1131683647
