@@ -42,7 +42,7 @@ public class BossAI : MonoBehaviour
             attackCooldownTimer -= Time.deltaTime;
         }
         checkForPlayer();
-    }
+    }       
 
     private void chasePlayer()
     {
@@ -102,7 +102,7 @@ public class BossAI : MonoBehaviour
         }
         else if (Bossstate == BossStates.Attack)
         {
-            anim.SetBool("IsAttacking", false);
+            anim.SetBool("isAttacking", false);
         }
         Bossstate = newState;
         
@@ -113,8 +113,17 @@ public class BossAI : MonoBehaviour
         }
         else if (Bossstate == BossStates.Attack)
         {
-            anim.SetBool("IsAttacking", true);
+            anim.SetBool("isAttacking", true);
+            ChooseCertainAttack();
         }
 
+    }
+
+    private void ChooseCertainAttack()
+    {
+        int rand;
+        rand = Random.Range(0, 2);
+
+        anim.SetFloat("AttackNo", rand);
     }
 }
