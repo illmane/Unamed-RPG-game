@@ -23,6 +23,7 @@ public class BossAI : MonoBehaviour
     private Rigidbody2D rb;
     private Transform _Player;
     private float facingDirection = 2.17f;
+    private Animator anim;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,6 +31,7 @@ public class BossAI : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         _Player = GameObject.FindGameObjectWithTag("Player").transform;
         Bossstate = BossStates.Idle;
+        anim = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -53,7 +55,7 @@ public class BossAI : MonoBehaviour
         Vector2 movementDirection = (_Player.position - transform.position).normalized;
         rb.linearVelocity = movementDirection * BossMovementSpeed;
 
-        Bossstate = BossStates.Chasing;
+        changeState(BossStates.Chasing);
     }
 
     private void EnemyFlip()
@@ -69,13 +71,16 @@ public class BossAI : MonoBehaviour
 
         if (hits.Length > 0)
         {
+            // If boss within attack range
             if (Vector2.Distance(transform.position, _Player.position) <= attackDistance && attackCooldownTimer <= 0f)
             {
                 attackCooldownTimer = AttackCooldown;
                 rb.linearVelocity = Vector2.zero;
-                print("I want to attack!!");
-                Bossstate = BossStates.Attack;
+
+                
+                changeState(BossStates.Attack);
             }
+            // If boss NOT within attack range
             else if (Vector2.Distance(transform.position, _Player.position) > attackDistance)
             {
                 chasePlayer();
@@ -84,7 +89,22 @@ public class BossAI : MonoBehaviour
         else
         {
             rb.linearVelocity = Vector2.zero;
-            Bossstate = BossStates.Idle;
+            changeState(BossStates.Idle);
         }
+    }
+
+    private void changeState(BossStates newState)
+    {
+        // exit out of current state
+        if (Bossstate == BossStates.Idle)
+        {
+            anim.SetBool("IsIdle", false);
+        }
+        else if (Bossstate == BossStates.Attack)
+        {
+            anim.SetBool("IsAttacking", false);
+        }
+        
+        Bossstate = newState;
     }
 }
