@@ -5444,7 +5444,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 107287918}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DetectionPoint
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -5475,7 +5475,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 133319606}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5964,10 +5964,11 @@ GameObject:
   - component: {fileID: 312414287}
   - component: {fileID: 312414286}
   - component: {fileID: 312414285}
-  - component: {fileID: 312414289}
   - component: {fileID: 312414290}
   - component: {fileID: 312414291}
-  m_Layer: 0
+  - component: {fileID: 312414292}
+  - component: {fileID: 312414289}
+  m_Layer: 7
   m_Name: SunKnight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6133,7 +6134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BossMovementSpeed: 2
   Bossstate: 0
-  attackDistance: 3
+  attackDistance: 6
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -6180,6 +6181,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   AttackPoint: {fileID: 133319606}
+--- !u!114 &312414292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312414284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0d03c1295ea1a644bc5402daa681aa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
+  Maxhealth: 10
+  Xp_amount: 1000
 --- !u!1 &329061780
 GameObject:
   m_ObjectHideFlags: 0

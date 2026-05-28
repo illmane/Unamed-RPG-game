@@ -38,6 +38,7 @@ public class PlayerDeathManager : MonoBehaviour
         {
             isDead = true;
             canvasGroup.alpha = 1;
+            Time.timeScale = 0;
         }
     }
 
@@ -48,6 +49,7 @@ public class PlayerDeathManager : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             canvasGroup.alpha = 0;
             isDead = false;
+            Time.timeScale = 1;
         }
     }
 

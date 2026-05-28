@@ -14,7 +14,7 @@ public class BossCombat : MonoBehaviour
 
         if (hits.Length > 0)
         {
-            hits[0].GetComponent<PlayerHealth>().takeDamage(DamangeAmount);
+            hits[0].GetComponent<PlayerHealth>().takeDamage(-DamangeAmount);
             hits[0].GetComponent<Player_Movement>().GetStunned(gameObject.transform);
         }
     }
