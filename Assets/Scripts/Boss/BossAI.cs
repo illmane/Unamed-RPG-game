@@ -50,8 +50,8 @@ public class BossAI : MonoBehaviour
         if (_Player.position.x > transform.position.x && facingDirection == 2.17f || _Player.position.x < transform.position.x && transform.localScale.x == -2.17f)
         {
             EnemyFlip();
-            
         }
+
         Vector2 movementDirection = (_Player.position - transform.position).normalized;
         rb.linearVelocity = movementDirection * BossMovementSpeed;
 
@@ -93,7 +93,7 @@ public class BossAI : MonoBehaviour
         }
     }
 
-    private void changeState(BossStates newState)
+    public void changeState(BossStates newState)
     {
         // exit out of current state
         if (Bossstate == BossStates.Idle)
@@ -104,7 +104,17 @@ public class BossAI : MonoBehaviour
         {
             anim.SetBool("IsAttacking", false);
         }
-        
         Bossstate = newState;
+        
+        // enter new animation state
+        if (Bossstate == BossStates.Idle)
+        {
+            anim.SetBool("IsIdle", true);
+        }
+        else if (Bossstate == BossStates.Attack)
+        {
+            anim.SetBool("IsAttacking", true);
+        }
+
     }
 }
