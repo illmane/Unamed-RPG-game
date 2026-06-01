@@ -74,11 +74,11 @@ public class BossAI : MonoBehaviour
             // If boss within attack range
             if (Vector2.Distance(transform.position, _Player.position) <= attackDistance && attackCooldownTimer <= 0f)
             {
-                attackCooldownTimer = AttackCooldown;
                 rb.linearVelocity = Vector2.zero;
 
                 
                 changeState(BossStates.Attack);
+                attackCooldownTimer = AttackCooldown;
             }
             // If boss NOT within attack range
             else if (Vector2.Distance(transform.position, _Player.position) > attackDistance)

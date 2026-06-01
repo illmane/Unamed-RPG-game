@@ -6012,8 +6012,8 @@ BoxCollider2D:
   m_Offset: {x: -0.013723969, y: -0.105292976}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.72443706, y: 0.52909374}
-    oldSize: {x: 2.625, y: 2.53125}
+    pivot: {x: 0.4853278, y: 0.5151064}
+    oldSize: {x: 2.71875, y: 2.4375}
     newSize: {x: 2.625, y: 2.53125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -6138,7 +6138,7 @@ MonoBehaviour:
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 64
-  AttackCooldown: 1
+  AttackCooldown: 2
   playerDetectionRange: 7
   detectionPoint: {fileID: 107287918}
 --- !u!95 &312414290
