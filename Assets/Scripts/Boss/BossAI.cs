@@ -124,6 +124,7 @@ public class BossAI : MonoBehaviour
     {
         int rand;
         rand = Random.Range(0, 2);
+        
 
         anim.SetFloat("AttackNo", rand);
 

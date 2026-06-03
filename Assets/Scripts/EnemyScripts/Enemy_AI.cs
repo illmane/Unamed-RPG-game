@@ -95,7 +95,7 @@ public class Enemy_AI : MonoBehaviour
         }
     }
 
-    private void ChangeState(EnemyState newState)
+    public void ChangeState(EnemyState newState)
     {
         //exit the current state
         if (state == EnemyState.Chasing)
