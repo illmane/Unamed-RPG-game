@@ -5968,6 +5968,7 @@ GameObject:
   - component: {fileID: 312414291}
   - component: {fileID: 312414292}
   - component: {fileID: 312414289}
+  - component: {fileID: 312414293}
   m_Layer: 7
   m_Name: SunKnight
   m_TagString: Untagged
@@ -6141,7 +6142,7 @@ MonoBehaviour:
   AttackCooldown: 2
   playerDetectionRange: 7
   detectionPoint: {fileID: 107287918}
-  AOE_cooldown: 0
+  AOE_cooldown: 3
 --- !u!95 &312414290
 Animator:
   serializedVersion: 7
@@ -6195,8 +6196,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  Maxhealth: 10
+  Maxhealth: 20
   Xp_amount: 1000
+--- !u!114 &312414293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312414284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e217af0739971d4b85653e386c0f445, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FireballPrefab: {fileID: 3663505790006650386, guid: cfb09d17bd3fdfd499f7cab169850623, type: 3}
+  randAmount: 0
 --- !u!1 &329061780
 GameObject:
   m_ObjectHideFlags: 0
@@ -7550,63 +7565,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1260426838
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3663505790006650386, guid: cfb09d17bd3fdfd499f7cab169850623, type: 3}
-      propertyPath: m_Name
-      value: Fireball
-      objectReference: {fileID: 0}
-    - target: {fileID: 7905480307845616514, guid: cfb09d17bd3fdfd499f7cab169850623, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5.52
-      objectReference: {fileID: 0}
-    - target: {fileID: 7905480307845616514, guid: cfb09d17bd3fdfd499f7cab169850623, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4.96
-      objectReference: {fileID: 0}
-    - target: {fileID: 7905480307845616514, guid: cfb09d17bd3fdfd499f7cab169850623, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7905480307845616514, guid: cfb09d17bd3fdfd499f7cab169850623, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7905480307845616514, guid: cfb09d17bd3fdfd499f7cab169850623, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7905480307845616514, guid: cfb09d17bd3fdfd499f7cab169850623, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7905480307845616514, guid: cfb09d17bd3fdfd499f7cab169850623, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7905480307845616514, guid: cfb09d17bd3fdfd499f7cab169850623, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7905480307845616514, guid: cfb09d17bd3fdfd499f7cab169850623, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7905480307845616514, guid: cfb09d17bd3fdfd499f7cab169850623, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: cfb09d17bd3fdfd499f7cab169850623, type: 3}
 --- !u!1 &1290012947
 GameObject:
   m_ObjectHideFlags: 0
@@ -8849,4 +8807,3 @@ SceneRoots:
   - {fileID: 576959307}
   - {fileID: 312414288}
   - {fileID: 1224098101}
-  - {fileID: 1260426838}
