@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4947245753779640642}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CentrePoint
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 9132642388513726062}
   - component: {fileID: 6214319684443118677}
   - component: {fileID: 7553773375289230675}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,5 +160,5 @@ MonoBehaviour:
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 64
-  FireballDamange: 3
+  FireballDamange: 4
   FireballDestroyTimer: 2

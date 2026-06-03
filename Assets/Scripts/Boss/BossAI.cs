@@ -132,5 +132,9 @@ public class BossAI : MonoBehaviour
         {
             attackCooldownTimer = AOE_cooldown;
         }
+        else if (rand == 0)
+        {
+            return;
+        }
     }
 }
