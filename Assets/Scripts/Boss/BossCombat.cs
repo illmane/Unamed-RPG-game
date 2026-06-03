@@ -18,4 +18,10 @@ public class BossCombat : MonoBehaviour
             hits[0].GetComponent<Player_Movement>().GetStunned(gameObject.transform);
         }
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(AttackPoint.position, attackRadius);
+    }
 }

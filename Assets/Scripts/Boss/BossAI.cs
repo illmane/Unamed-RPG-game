@@ -17,6 +17,7 @@ public class BossAI : MonoBehaviour
     public float AttackCooldown;
     public float playerDetectionRange;
     public Transform detectionPoint;
+    public float AOE_cooldown;
     
 
     private float attackCooldownTimer;
@@ -78,7 +79,7 @@ public class BossAI : MonoBehaviour
 
                 
                 changeState(BossStates.Attack);
-                attackCooldownTimer = AttackCooldown;
+                
             }
             // If boss NOT within attack range
             else if (Vector2.Distance(transform.position, _Player.position) > attackDistance)
@@ -125,5 +126,10 @@ public class BossAI : MonoBehaviour
         rand = Random.Range(0, 2);
 
         anim.SetFloat("AttackNo", rand);
+
+        if (rand == 1)
+        {
+            attackCooldownTimer = AOE_cooldown;
+        }
     }
 }
