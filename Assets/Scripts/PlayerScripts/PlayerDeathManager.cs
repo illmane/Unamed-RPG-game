@@ -50,6 +50,7 @@ public class PlayerDeathManager : MonoBehaviour
             canvasGroup.alpha = 0;
             isDead = false;
             Time.timeScale = 1;
+            StatsManager.Instance.currentHealh = StatsManager.Instance.maxHealth;
         }
     }
 

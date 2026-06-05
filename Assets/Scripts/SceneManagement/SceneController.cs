@@ -34,19 +34,19 @@ public class SceneController : MonoBehaviour
     {
         TransitionAnim.SetTrigger("End");
         // check if current scene is TUTORIALAREA
-        if (currentIndex == 0)
+        if (currentIndex == 1)
         {
             SceneManager.LoadSceneAsync("ForestBiome");
             _playerPosition.position = FOREST_BIOME_SPAWNPOINT;
         }
 
-        else if (currentIndex == 1)
+        else if (currentIndex == 2)
         {
             SceneManager.LoadSceneAsync("CaveBiome");
             _playerPosition.position = CAVE_BIOME_SPAWNPOINT;
         }
 
-        else if (currentIndex == 2)
+        else if (currentIndex == 3)
         {
             SceneManager.LoadSceneAsync("BossRoon");
             _playerPosition.position = BOSS_ROOM_SPAWNPOINT;

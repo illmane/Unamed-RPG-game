@@ -14,7 +14,7 @@ public class AudioManager : MonoBehaviour
     {
         mainMenuIndex = SceneManager.GetActiveScene().buildIndex;
 
-        if (mainMenuIndex == 4)
+        if (mainMenuIndex == 0)
         {
             PlayMainMenu();
         }
