@@ -11,7 +11,8 @@ public class Enemy_Health : MonoBehaviour
    public float currentHealth;
    public float Maxhealth;
    public static event Action OnKillingTutorialEnemy;
-   public int Xp_amount; 
+   public static event Action OnKillingBoss;
+   public int Xp_amount;
 
    private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
@@ -37,10 +38,18 @@ public class Enemy_Health : MonoBehaviour
             {   
                 OnKillingTutorialEnemy?.Invoke();
             }
+            else if (gameObject.tag == "Boss")
+            {
+                OnKillingBoss?.Invoke();
+            }
 
             XPManager.instance.GainExperience(Xp_amount);
             Destroy(gameObject);
+
+
         }
+
+        
     }
 
     private IEnumerator damageFeedback()
