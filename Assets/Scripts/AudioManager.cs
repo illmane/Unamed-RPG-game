@@ -8,15 +8,22 @@ public class AudioManager : MonoBehaviour
 
     [Header("Audio Clip")]
     public AudioClip MainMenuTheme;
-    private int mainMenuIndex;
+    public AudioClip BossTheme;
+    private int SceneIndex;
 
     void Start()
     {
-        mainMenuIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-        if (mainMenuIndex == 0)
+        // MAIN MENU SCREEN
+        if (SceneIndex == 0)
         {
             PlayMainMenu();
+        }
+        // BOSS ROOM
+        else if (SceneIndex == 4)
+        {
+            PlayBossTheme();
         }
         else
         {
@@ -34,5 +41,11 @@ public class AudioManager : MonoBehaviour
     public void PlaySFX()
     {
         return;
+    }
+
+    private void PlayBossTheme()
+    {
+        MusicSource.clip = BossTheme;
+        MusicSource.Play();
     }
 }
