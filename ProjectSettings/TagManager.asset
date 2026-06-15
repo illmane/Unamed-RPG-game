@@ -8,6 +8,7 @@ TagManager:
   - TutorialEnemy
   - SceneTansition
   - Boss
+  - ExitTile
   layers:
   - Default
   - TransparentFX
