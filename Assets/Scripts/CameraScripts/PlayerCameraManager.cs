@@ -20,9 +20,13 @@ public class PlayerCameraManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        _confiner2D = GetComponent<CinemachineConfiner2D>();
-        confinerObject = GameObject.FindWithTag("Confiner");
+        if (SceneManager.GetActiveScene().buildIndex != 5)
+        {
+            
+            _confiner2D = GetComponent<CinemachineConfiner2D>();
+            confinerObject = GameObject.FindWithTag("Confiner");
 
-        _confiner2D.BoundingShape2D = confinerObject.GetComponent<PolygonCollider2D>();
+            _confiner2D.BoundingShape2D = confinerObject.GetComponent<PolygonCollider2D>();
+        }
     }
 }
