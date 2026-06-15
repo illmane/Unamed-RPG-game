@@ -52,7 +52,14 @@ public class SceneController : MonoBehaviour
             _playerPosition.position = BOSS_ROOM_SPAWNPOINT;
         }
 
+        else if (currentIndex == 4)
+        {
+            SceneManager.LoadSceneAsync("EndCredit");
+        }
+
         TransitionAnim.SetTrigger("Start");
+
+
     }
 
     private void MakeObjectsPersistent()
